@@ -36,3 +36,21 @@ router.get('/student-details/:name', function(req, res){
 })
 
 module.exports = router;
+
+
+
+
+router.get ('/movies',function(req,res){
+    const movies=['Gajni', 'Dhoom', 'Agnipath']
+    res.send (movies)
+})
+router.get('/movies/:indexNumber',function (req,res){
+    const movies=['Gajni', 'Dhoom', 'Agnipath']
+    let requestParams=req.params
+    let movieName=requestParams.indexNumber
+    res.send (movies)
+})
+
+
+
+

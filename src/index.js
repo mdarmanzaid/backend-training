@@ -67,4 +67,52 @@ res.send ("This player was already added")
     res.send({data :players, staus:true} )
 }
 })
+
+let person =
+[
+    {
+        name :"PK",
+        age : "10",
+        votingStatus :false
+    },
+    {
+        name :"CC",
+        age : "18",
+        votingStatus :false
+    },
+    {
+        name :"AA",
+        age : "20",
+        votingStatus :false
+    },
+    {
+        name :"SK",
+        age : "25",
+        votingStatus :false
+    }
+]
+router.post("/person/:votingAge",function(req ,res){
+   
+let newPerson =req.params
+let newPersonsName= req.params.newPerson
+let isvotingStatus=false
+
+for(let i=0;i<newPerson.length;i++){
+    if(person[i].name==newPersonsName){
+        isvotingStatus=true
+        break;
+    }
+}
+if(isvotingStatus=18){
+    res.send ("This pereson is eligible for vot")
+    
+    }else{
+        res.send("This person is not eligible for voting")
+        res.send({data :person, staus:true} )
+    }
+
+})
+
+
+
 module.exports=router;

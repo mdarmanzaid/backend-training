@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 
 const route = require('./routes/route.js');
 const router = require('./routes/route.js');
+const { default: mongoose } = require('mongoose');
 
 const app = express();
 
@@ -10,6 +11,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', route);
+
+mongoose.connect("mongodb+srv://mdarman:JdDhmsdzbNse7Xl6@cluster0.bzfbgzi.mongodb.net/test?retryWrites=true&w=majority"
+,{
+    useNewUrlparser:true,
+}
+
+).then( ()=> {console.log("MongoDb is Connected")})
+.catch (err => {console.log(error)})
 
 app.listen(process.env.PORT || 3000, function() {
     console.log('Express app running on port ' + (process.env.PORT || 3000))
@@ -112,6 +121,7 @@ if(isvotingStatus=18){
     }
 
 })
+
 
 
 
